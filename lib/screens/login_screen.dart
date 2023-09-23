@@ -176,40 +176,52 @@ class _login_screenState extends State<login_screen> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.2,
                               ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  if (formkey.currentState!.validate()) {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => categoryscreen(),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                                child: InkWell(
+                                        
+                                      onTap: () {
+                                        if (formkey.currentState!.validate()) {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => categoryscreen(),
+                                            ),
+                                          );
+                                        } else {}
+                                      },
+                                        borderRadius: BorderRadius.circular(15.0),
+                                    
+                                  child: Ink(
+                                    height:
+                                          MediaQuery.of(context).size.height * 0.07,
+                                      width:
+                                          MediaQuery.of(context).size.width * 0.42,
+                                             decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(15.0),
+                                                          gradient: LinearGradient(
+                                colors: [
+
+                                  Color.fromARGB(255, 33, 40, 87),
+                                  Color.fromARGB(255, 12, 117, 146),
+                                ],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                                          ),
+                                                        ),
+                                    child: Center(
+                                      child: Text(
+                                        'Continue',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 23,
+                                            ),
                                       ),
-                                    );
-                                  } else {}
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromARGB(255, 146, 149, 150),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                ),
-                                child: Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.07,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.42,
-                                  child: Center(
-                                    child: Text(
-                                      'Continue',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 23,
-                                          ),
                                     ),
                                   ),
+                                  ),
                                 ),
-                              ),
+                              
                               SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.1,
