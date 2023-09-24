@@ -7,13 +7,23 @@ class categoryscreen extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
 return Scaffold(
-  body: Column(
-    children: [
-     for(int i = 0; i < 6; i++)
-     CategoryContainer(
-      index: i,
-     )
-    ],
+  backgroundColor: Color.fromARGB(255, 21, 25, 52),
+  body:Padding(
+    padding: const EdgeInsets.only(top: 140.0,left: 10),
+    child: Center(
+      
+      child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, 
+               crossAxisSpacing: 3,
+                    mainAxisSpacing: 10,
+            ),
+            itemCount: 6, 
+            itemBuilder: (context, index) {
+              return CategoryContainer(index: index);
+            },
+          ),
+    ),
   ),
 
 );

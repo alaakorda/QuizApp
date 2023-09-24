@@ -3,14 +3,21 @@ import 'package:quizapp/Global/quiz_data.dart';
 import '../screens/quiz_screen.dart';
 
 class CategoryContainer extends StatelessWidget {
- 
   final int index;
+
   CategoryContainer({
     required this.index,
-
   });
-  List quizname = ["Sports", "History", "IQ","programming","math","science"];
-  List quizcolor = [
+
+  List<String> quizname = [
+    "Sports",
+    "History",
+    "IQ",
+    "Programming",
+    "Math",
+    "Science"
+  ];
+  List<Color> quizcolor = [
     Color.fromARGB(255, 23, 33, 92),
     Color.fromARGB(255, 23, 33, 92),
     Color.fromARGB(255, 23, 33, 92),
@@ -21,32 +28,49 @@ class CategoryContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => QuizScreen(categoryMap: database[index])
+    return Row(
+      children: [
+        Expanded(
+          child: Card(
+            elevation: 4.0,
+            color: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
             ),
-          );
-        },
-        child: Container(
-          decoration: BoxDecoration(
-              color: quizcolor[index],
-              border: Border.all(width: 1, color: Colors.white)),
-          child: Center(
-            child: Text(
-              quizname[index],
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-                fontWeight: FontWeight.normal,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        QuizScreen(categoryMap: database[index]),
+                  ),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      quizname[index],
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
         ),
-      ),
+        SizedBox(width: 10.0),
+      ],
     );
   }
 }
