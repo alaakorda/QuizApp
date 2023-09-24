@@ -202,7 +202,7 @@ class _login_screenState extends State<login_screen> {
                                                           gradient: LinearGradient(
                                 colors: [
 
-                                  Color.fromARGB(255, 33, 40, 87),
+                                  Color.fromARGB(255, 28, 34, 73),
                                   Color.fromARGB(255, 12, 117, 146),
                                 ],
                                 begin: Alignment.topCenter,
